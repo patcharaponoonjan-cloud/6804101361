@@ -1,6 +1,11 @@
 <template>
   <q-page class="q-pa-md">
-    <q-form class="q-gutter-md" style="max-width: 600px">
+    <q-form
+      @submit="onSubmit"
+      @reset="onReset"
+      class="q-gutter-md"
+      style="max-width: 600px"
+    >
       <q-input
         v-model="name"
         filled
@@ -24,9 +29,32 @@
 </template>
 
 <script setup>
+import { useQuasar } from 'quasar'
 import { ref } from 'vue'
 
-const name = ref(null)
+const $q = useQuasar()
+
+const name = ref('')
 const age = ref(null)
 const accept = ref(false)
+
+function onSubmit() {
+  if (accept.value !== true) {
+    $q.notify({
+      type: 'negative',
+      message: 'You need to accept the license and terms first'
+    })
+  } else {
+    $q.notify({
+      type: 'positive',
+      message: 'Submitted successfully'
+    })
+  }
+}
+
+function onReset() {
+  name.value = ''
+  age.value = null
+  accept.value = false
+}
 </script>
