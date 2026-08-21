@@ -13,7 +13,10 @@
         hint="Name and surname"
       />
       <q-input v-model="age" filled type="number" label="Your age *" />
-      <q-toggle v-model="accept" label="I accept the license and terms" />
+      <q-toggle
+        v-model="accept"
+        label="I accept the license and terms (我接受许可和条款语言)"
+      />
       <div>
         <q-btn label="SUBMIT" type="submit" color="primary" />
         <q-btn
