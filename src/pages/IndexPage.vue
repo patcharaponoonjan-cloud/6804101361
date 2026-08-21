@@ -9,10 +9,10 @@
       <q-input
         v-model="name"
         filled
-        label="Your name *"
+        label="Your name (ชื่อ-สกุล) *"
         hint="Name and surname"
       />
-      <q-input v-model="age" filled type="number" label="Your age *" />
+      <q-input v-model="age" filled type="number" label="Your age (อายุ) *" />
       <q-toggle v-model="accept" label="I accept the license and terms" />
       <div>
         <q-btn label="SUBMIT" type="submit" color="primary" />
